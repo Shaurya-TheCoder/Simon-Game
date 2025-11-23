@@ -43,6 +43,12 @@ $(document).keypress(function(){
         nextSequence();
 });
 
+$(document).on("touchstart", function() {
+    if (gamePattern.length === 0) {
+        nextSequence();
+    }
+});
+
 function checkAnswer(currentLevel){
     if(userClickedPattern[currentLevel] === gamePattern[currentLevel]){
         console.log('sucess');
@@ -60,7 +66,7 @@ function checkAnswer(currentLevel){
         $('body').removeClass("game-over");
        },200);
 
-       $('h1').text("Game Over, Press Any Key to Restart");
+       $('h1').text("Game Over, Press Any Key/Touch to Restart");
        level = 0;
        gamePattern = [];
        userClickedPattern = [];
